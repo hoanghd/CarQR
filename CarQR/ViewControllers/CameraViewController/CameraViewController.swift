@@ -20,7 +20,7 @@ class CameraViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         startLiveVideo()
-        startBarcodeDetection()
+        startQRCodeDetection()
     }
     
     func startLiveVideo() {
@@ -70,7 +70,7 @@ class CameraViewController: BaseViewController {
         }
     }
     
-    func startBarcodeDetection() {
+    func startQRCodeDetection() {
         let barcodeRequest = VNDetectBarcodesRequest(completionHandler: self.detectBarcodeHandler)
         self.requests = [barcodeRequest]
     }
@@ -104,8 +104,8 @@ class CameraViewController: BaseViewController {
                     self.highlightQRCode(barcode: barcodeObservation)
                 }
                 
-                print("========================================================================================================================")
-                for (barcodeContent, barcodeObservation) in barcodeObservations {
+                print("=======================================")
+                for (barcodeContent, _) in barcodeObservations {
                     print(barcodeContent)
                 }
             }
@@ -117,8 +117,8 @@ class CameraViewController: BaseViewController {
 
         let outline = CALayer()
         outline.frame = barcodeBounds
-        outline.borderWidth = 1.0
-        outline.borderColor = UIColor.blue.cgColor
+        outline.borderWidth = 2.0
+        outline.borderColor = UIColor.white.cgColor
 
         // We are inserting the highlights at the beginning of the sublayer queue
         // To avoid overlapping with the textboxes
