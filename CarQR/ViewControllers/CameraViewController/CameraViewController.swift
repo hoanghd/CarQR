@@ -92,22 +92,36 @@ class CameraViewController: BaseViewController {
                 self.totalNumberOfTextBoxes = 0
                 
                 // This will be used to eliminate duplicate findings
-                var barcodeObservations: [String : VNBarcodeObservation] = [:]
+                //var barcodeObservations: [String : VNBarcodeObservation] = [:]
+                var qrObservations: [VNBarcodeObservation] = []
+                
                 for barcode in barcodes {
                     if let potentialQRCode = barcode as? VNBarcodeObservation {
                         if potentialQRCode.payloadStringValue != nil && potentialQRCode.symbology == .QR {
-                            barcodeObservations[potentialQRCode.payloadStringValue!] = potentialQRCode
+                            //barcodeObservations[potentialQRCode.payloadStringValue!] = potentialQRCode
+                            qrObservations.append(potentialQRCode)
                         }
                     }
                 }
-
-                for (_, barcodeObservation) in barcodeObservations {
+                
+                let qrObservationsSorted = qrObservations.sorted(by: {
+                    $0.boundingBox.origin.x < $1.boundingBox.origin.x
+                    ||
+                    (
+                        $0.boundingBox.origin.x == $1.boundingBox.origin.x &&
+                        $0.boundingBox.origin.y < $1.boundingBox.origin.y
+                    )
+                })
+                
+                for barcodeObservation in qrObservationsSorted {
                     self.highlightQRCode(barcode: barcodeObservation)
                 }
                 
-                print("\nItems:\(barcodeObservations.count):")
-                for (barcodeContent, _) in barcodeObservations {
-                    print(barcodeContent)
+                if qrObservationsSorted.count >= 5 {
+                    print("\nItems:\(qrObservationsSorted.count):")
+                    for barcodeObservation in qrObservationsSorted {
+                        print("Code:\(String(describing: barcodeObservation.payloadStringValue))")
+                    }
                 }
             }
         }
