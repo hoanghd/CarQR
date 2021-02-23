@@ -120,7 +120,7 @@ class CameraViewController: BaseViewController {
                 if qrObservationsSorted.count >= 5 {
                     print("\nItems:\(qrObservationsSorted.count):")
                     for barcodeObservation in qrObservationsSorted {
-                        print("Code:\(String(describing: barcodeObservation.payloadStringValue))")
+                        print("\(String(describing: barcodeObservation.payloadStringValue!))")
                     }
                 }
             }
