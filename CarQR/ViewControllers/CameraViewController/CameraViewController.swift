@@ -19,11 +19,11 @@ class CameraViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        startLiveVideo()
+        startCamera()
         startQRCodeDetection()
     }
     
-    func startLiveVideo() {
+    func startCamera() {
         // Enable live stream video
         self.session.sessionPreset = AVCaptureSession.Preset.photo
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
@@ -57,6 +57,7 @@ class CameraViewController: BaseViewController {
         
         previewLayer.videoGravity = .resizeAspectFill
         previewLayer.frame = self.videoOutputView.bounds
+        
         self.videoOutputView.layer.addSublayer(previewLayer)
         
         self.session.startRunning()
@@ -71,12 +72,12 @@ class CameraViewController: BaseViewController {
     }
     
     func startQRCodeDetection() {
-        let barcodeRequest = VNDetectBarcodesRequest(completionHandler: self.detectBarcodeHandler)
+        let barcodeRequest = VNDetectBarcodesRequest(completionHandler: self.detectQRCodeHandler)
         self.requests = [barcodeRequest]
     }
     
     // Handle barcode detection requests
-    func detectBarcodeHandler(request: VNRequest, error: Error?) {
+    func detectQRCodeHandler(request: VNRequest, error: Error?) {
         if error != nil {
             print(error!)
         }
@@ -104,7 +105,7 @@ class CameraViewController: BaseViewController {
                     self.highlightQRCode(barcode: barcodeObservation)
                 }
                 
-                print("=======================================")
+                print("\nItems:\(barcodeObservations.count):")
                 for (barcodeContent, _) in barcodeObservations {
                     print(barcodeContent)
                 }
