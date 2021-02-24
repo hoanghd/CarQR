@@ -92,12 +92,12 @@ class QRResult {
             }
             
         case .light:
-            if qr2.count != 17 || qr3.count != 19 {
+            if qr2.count != 7 || qr3.count != 19 {
                 return false
             }
             
             guard let ver2 = Int(qr2[1]), ver2 >= 22 else { return false }
-            guard let ver3 = Int(qr2[1]), ver3 >= 31 else { return false }
+            guard let ver3 = Int(qr3[1]), ver3 >= 31 else { return false }
             
         case .unknown:
             return false

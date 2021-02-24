@@ -127,6 +127,11 @@ class CameraViewController: BaseViewController {
                         .map{ $0.payloadStringValue! }
                     )
                     
+                    print("\nItems: \(barcodeObservations.count)")
+                    for (_, barcodeObservation) in barcodeObservations {
+                        print("\t\(barcodeObservation.payloadStringValue!)")
+                    }
+                    
                     if self.qrResult.validate() {
                         self.toggleSession()
                         self.showCarDetail()

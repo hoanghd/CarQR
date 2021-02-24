@@ -27,7 +27,7 @@ class DetailViewController: BaseViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
         let item = self.certificate.items[indexPath.row]
-        cell.textLabel?.text = item.title + ":\t" + (item.description ?? "-")
+        cell.textLabel?.text = item.title + ":" + (item.description ?? "-")
         return cell
     }
 }
