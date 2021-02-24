@@ -26,6 +26,11 @@ class CameraViewController: BaseViewController {
     }
     
     func startCamera() {
+        if !self.session.inputs.isEmpty {
+            self.toggleSession()
+            return
+        }
+        
         // Enable live stream video
         self.session.sessionPreset = AVCaptureSession.Preset.photo
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
@@ -124,7 +129,7 @@ class CameraViewController: BaseViewController {
                     
                     if self.qrResult.validate() {
                         self.toggleSession()
-                        self.qrResult.debug()
+                        self.showCarDetail()
                     }
                 }
             }
@@ -156,6 +161,21 @@ class CameraViewController: BaseViewController {
         height *= -1
 
         return CGRect(x: xCord, y: yCord, width: width, height: height)
+    }
+    
+    func showCarDetail() {
+        let vc = DetailViewController()
+        
+        switch self.qrResult.getCertificate() {
+            case .Standard(let standardCertificate):
+                vc.certificate = standardCertificate
+            case .Light(let lightCertificate):
+                vc.certificate = lightCertificate
+            case .none:
+                vc.certificate = nil
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
