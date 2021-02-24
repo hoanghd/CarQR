@@ -6,6 +6,8 @@ import CoreData
 class CameraViewController: BaseViewController {
     var session = AVCaptureSession()
     var requests = [VNRequest]()
+    var qrResult = QRResult()
+    
     var totalNumberOfTextBoxes: Int = 0
     
     lazy var videoOutputView: UIImageView = {
@@ -81,6 +83,7 @@ class CameraViewController: BaseViewController {
         if error != nil {
             print(error!)
         }
+        
         guard let barcodes = request.results else {
             return
         }
@@ -92,36 +95,34 @@ class CameraViewController: BaseViewController {
                 self.totalNumberOfTextBoxes = 0
                 
                 // This will be used to eliminate duplicate findings
-                //var barcodeObservations: [String : VNBarcodeObservation] = [:]
-                var qrObservations: [VNBarcodeObservation] = []
+                var barcodeObservations: [String : VNBarcodeObservation] = [:]
                 
                 for barcode in barcodes {
                     if let potentialQRCode = barcode as? VNBarcodeObservation {
                         if potentialQRCode.payloadStringValue != nil && potentialQRCode.symbology == .QR {
-                            //barcodeObservations[potentialQRCode.payloadStringValue!] = potentialQRCode
-                            qrObservations.append(potentialQRCode)
+                            barcodeObservations[potentialQRCode.payloadStringValue!] = potentialQRCode
                         }
                     }
                 }
                 
-                let qrObservationsSorted = qrObservations.sorted(by: {
-                    $0.boundingBox.origin.x < $1.boundingBox.origin.x
-                    ||
-                    (
-                        $0.boundingBox.origin.x == $1.boundingBox.origin.x &&
-                        $0.boundingBox.origin.y < $1.boundingBox.origin.y
-                    )
-                })
-                
-                for barcodeObservation in qrObservationsSorted {
+                for (_, barcodeObservation) in barcodeObservations {
                     self.highlightQRCode(barcode: barcodeObservation)
                 }
                 
-                if qrObservationsSorted.count >= 5 {
-                    print("\nItems:\(qrObservationsSorted.count):")
-                    for barcodeObservation in qrObservationsSorted {
-                        print("\(String(describing: barcodeObservation.payloadStringValue!))")
-                    }
+                if barcodeObservations.count >= 2 {
+                    self.qrResult.setTexts(
+                        barcodeObservations.values.sorted(by: {
+                            $0.boundingBox.origin.x < $1.boundingBox.origin.x
+                            ||
+                            (
+                                $0.boundingBox.origin.x == $1.boundingBox.origin.x &&
+                                $0.boundingBox.origin.y < $1.boundingBox.origin.y
+                            )
+                        })
+                        .map{ $0.payloadStringValue! }
+                    )
+                    
+                    self.qrResult.debug()
                 }
             }
         }

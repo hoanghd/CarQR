@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C701620925E5E799002E4A6F /* QRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701620825E5E799002E4A6F /* QRResult.swift */; };
 		C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F1425E4984100D3D93B /* AppDelegate.swift */; };
 		C77A6F1E25E4984400D3D93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1D25E4984400D3D93B /* Assets.xcassets */; };
 		C77A6F2125E4984400D3D93B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1F25E4984400D3D93B /* LaunchScreen.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C701620825E5E799002E4A6F /* QRResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRResult.swift; sourceTree = "<group>"; };
 		C77A6F1125E4984100D3D93B /* CarQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77A6F1425E4984100D3D93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C77A6F1D25E4984400D3D93B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C701620725E5E4D7002E4A6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C701620825E5E799002E4A6F /* QRResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C77A6F0825E4984000D3D93B = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +64,7 @@
 		C77A6F1325E4984100D3D93B /* CarQR */ = {
 			isa = PBXGroup;
 			children = (
+				C701620725E5E4D7002E4A6F /* Model */,
 				C77A6F2C25E499B700D3D93B /* ViewControllers */,
 				C77A6F1425E4984100D3D93B /* AppDelegate.swift */,
 				C77A6F1D25E4984400D3D93B /* Assets.xcassets */,
@@ -160,6 +171,7 @@
 				C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */,
 				C77A6F2F25E499F800D3D93B /* BaseViewController.swift in Sources */,
 				C77A6F3425E49A8D00D3D93B /* CameraViewController.swift in Sources */,
+				C701620925E5E799002E4A6F /* QRResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
