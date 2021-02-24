@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C701620925E5E799002E4A6F /* QRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701620825E5E799002E4A6F /* QRResult.swift */; };
+		C701620C25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701620B25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift */; };
+		C701620F25E62A5C002E4A6F /* LightCarInspectionCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701620E25E62A5C002E4A6F /* LightCarInspectionCertificate.swift */; };
+		C701621225E62AE7002E4A6F /* StandardCarInspectionCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621125E62AE7002E4A6F /* StandardCarInspectionCertificate.swift */; };
+		C701621625E62B41002E4A6F /* CarInspectionCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621525E62B41002E4A6F /* CarInspectionCertificate.swift */; };
+		C701621925E62B62002E4A6F /* CarInspectionCertificateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621825E62B62002E4A6F /* CarInspectionCertificateItem.swift */; };
+		C701621D25E62BB3002E4A6F /* NSDateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621C25E62BB3002E4A6F /* NSDateUtil.swift */; };
 		C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F1425E4984100D3D93B /* AppDelegate.swift */; };
 		C77A6F1E25E4984400D3D93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1D25E4984400D3D93B /* Assets.xcassets */; };
 		C77A6F2125E4984400D3D93B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1F25E4984400D3D93B /* LaunchScreen.storyboard */; };
@@ -17,6 +23,12 @@
 
 /* Begin PBXFileReference section */
 		C701620825E5E799002E4A6F /* QRResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRResult.swift; sourceTree = "<group>"; };
+		C701620B25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInspectionCertificateSharedItems.swift; sourceTree = "<group>"; };
+		C701620E25E62A5C002E4A6F /* LightCarInspectionCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightCarInspectionCertificate.swift; sourceTree = "<group>"; };
+		C701621125E62AE7002E4A6F /* StandardCarInspectionCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardCarInspectionCertificate.swift; sourceTree = "<group>"; };
+		C701621525E62B41002E4A6F /* CarInspectionCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInspectionCertificate.swift; sourceTree = "<group>"; };
+		C701621825E62B62002E4A6F /* CarInspectionCertificateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInspectionCertificateItem.swift; sourceTree = "<group>"; };
+		C701621C25E62BB3002E4A6F /* NSDateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateUtil.swift; sourceTree = "<group>"; };
 		C77A6F1125E4984100D3D93B /* CarQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77A6F1425E4984100D3D93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C77A6F1D25E4984400D3D93B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,8 +53,21 @@
 			isa = PBXGroup;
 			children = (
 				C701620825E5E799002E4A6F /* QRResult.swift */,
+				C701620B25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift */,
+				C701620E25E62A5C002E4A6F /* LightCarInspectionCertificate.swift */,
+				C701621125E62AE7002E4A6F /* StandardCarInspectionCertificate.swift */,
+				C701621525E62B41002E4A6F /* CarInspectionCertificate.swift */,
+				C701621825E62B62002E4A6F /* CarInspectionCertificateItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C701621B25E62B9D002E4A6F /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C701621C25E62BB3002E4A6F /* NSDateUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		C77A6F0825E4984000D3D93B = {
@@ -64,6 +89,7 @@
 		C77A6F1325E4984100D3D93B /* CarQR */ = {
 			isa = PBXGroup;
 			children = (
+				C701621B25E62B9D002E4A6F /* Util */,
 				C701620725E5E4D7002E4A6F /* Model */,
 				C77A6F2C25E499B700D3D93B /* ViewControllers */,
 				C77A6F1425E4984100D3D93B /* AppDelegate.swift */,
@@ -77,26 +103,10 @@
 		C77A6F2C25E499B700D3D93B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C77A6F3225E49A7B00D3D93B /* CameraViewController */,
-				C77A6F2D25E499D700D3D93B /* BaseViewController */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		C77A6F2D25E499D700D3D93B /* BaseViewController */ = {
-			isa = PBXGroup;
-			children = (
+				C77A6F3325E49A8D00D3D93B /* CameraViewController.swift */,
 				C77A6F2E25E499F800D3D93B /* BaseViewController.swift */,
 			);
-			path = BaseViewController;
-			sourceTree = "<group>";
-		};
-		C77A6F3225E49A7B00D3D93B /* CameraViewController */ = {
-			isa = PBXGroup;
-			children = (
-				C77A6F3325E49A8D00D3D93B /* CameraViewController.swift */,
-			);
-			path = CameraViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,8 +180,14 @@
 			files = (
 				C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */,
 				C77A6F2F25E499F800D3D93B /* BaseViewController.swift in Sources */,
+				C701620C25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift in Sources */,
+				C701620F25E62A5C002E4A6F /* LightCarInspectionCertificate.swift in Sources */,
+				C701621925E62B62002E4A6F /* CarInspectionCertificateItem.swift in Sources */,
 				C77A6F3425E49A8D00D3D93B /* CameraViewController.swift in Sources */,
+				C701621D25E62BB3002E4A6F /* NSDateUtil.swift in Sources */,
 				C701620925E5E799002E4A6F /* QRResult.swift in Sources */,
+				C701621625E62B41002E4A6F /* CarInspectionCertificate.swift in Sources */,
+				C701621225E62AE7002E4A6F /* StandardCarInspectionCertificate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

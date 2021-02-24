@@ -122,7 +122,10 @@ class CameraViewController: BaseViewController {
                         .map{ $0.payloadStringValue! }
                     )
                     
-                    self.qrResult.debug()
+                    if self.qrResult.validate() {
+                        self.toggleSession()
+                        self.qrResult.debug()
+                    }
                 }
             }
         }

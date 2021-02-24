@@ -106,12 +106,28 @@ class QRResult {
         return true
     }
     
+    func getCertificate() -> CarInspectionCertificate? {
+        switch type {
+            case .standard:
+                if let certificate = StandardCarInspectionCertificate(rawStrings: [qr2.joined(separator: "/"), qr3.joined(separator: "/") ]){
+                    return CarInspectionCertificate.Standard( certificate )
+                }
+            case .light:
+                if let certificate = LightCarInspectionCertificate(rawStrings: [qr2.joined(separator: "/"), qr3.joined(separator: "/") ]){
+                    return CarInspectionCertificate.Light( certificate )
+                }
+            case .unknown:
+                return nil
+        }
+    
+        return nil
+    }
+    
     func debug(){
         if type != .unknown {
             print("\n=================")
             print("- type: \(type)")
-            print("- qr2: \(qr2)")
-            print("- qr3: \(qr3)")
+            print(getCertificate() as Any)
         }
     }
 }
