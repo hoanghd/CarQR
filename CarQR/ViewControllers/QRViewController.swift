@@ -1,9 +1,9 @@
-import UIKit
 import AVFoundation
+import UIKit
 import Vision
 import CoreData
 
-class CameraViewController: BaseViewController {
+class QRViewController: BaseViewController {
     var session = AVCaptureSession()
     var requests = [VNRequest]()
     var qrResult = QRResult()
@@ -184,7 +184,7 @@ class CameraViewController: BaseViewController {
     }
 }
 
-extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension QRViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     // Run Vision code with live stream
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {

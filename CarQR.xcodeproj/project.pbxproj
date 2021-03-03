@@ -15,11 +15,12 @@
 		C701621925E62B62002E4A6F /* CarInspectionCertificateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621825E62B62002E4A6F /* CarInspectionCertificateItem.swift */; };
 		C701621D25E62BB3002E4A6F /* NSDateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621C25E62BB3002E4A6F /* NSDateUtil.swift */; };
 		C701622925E648B0002E4A6F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701622825E648B0002E4A6F /* DetailViewController.swift */; };
+		C757884125EF65410096CF1B /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757884025EF65410096CF1B /* TextViewController.swift */; };
 		C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F1425E4984100D3D93B /* AppDelegate.swift */; };
 		C77A6F1E25E4984400D3D93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1D25E4984400D3D93B /* Assets.xcassets */; };
 		C77A6F2125E4984400D3D93B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1F25E4984400D3D93B /* LaunchScreen.storyboard */; };
 		C77A6F2F25E499F800D3D93B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F2E25E499F800D3D93B /* BaseViewController.swift */; };
-		C77A6F3425E49A8D00D3D93B /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F3325E49A8D00D3D93B /* CameraViewController.swift */; };
+		C77A6F3425E49A8D00D3D93B /* QRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F3325E49A8D00D3D93B /* QRViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,13 +32,14 @@
 		C701621825E62B62002E4A6F /* CarInspectionCertificateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInspectionCertificateItem.swift; sourceTree = "<group>"; };
 		C701621C25E62BB3002E4A6F /* NSDateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateUtil.swift; sourceTree = "<group>"; };
 		C701622825E648B0002E4A6F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C757884025EF65410096CF1B /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		C77A6F1125E4984100D3D93B /* CarQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77A6F1425E4984100D3D93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C77A6F1D25E4984400D3D93B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C77A6F2025E4984400D3D93B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C77A6F2225E4984400D3D93B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C77A6F2E25E499F800D3D93B /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		C77A6F3325E49A8D00D3D93B /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		C77A6F3325E49A8D00D3D93B /* QRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +107,10 @@
 		C77A6F2C25E499B700D3D93B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C77A6F3325E49A8D00D3D93B /* CameraViewController.swift */,
+				C77A6F3325E49A8D00D3D93B /* QRViewController.swift */,
 				C77A6F2E25E499F800D3D93B /* BaseViewController.swift */,
 				C701622825E648B0002E4A6F /* DetailViewController.swift */,
+				C757884025EF65410096CF1B /* TextViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,11 +190,12 @@
 				C701620C25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift in Sources */,
 				C701620F25E62A5C002E4A6F /* LightCarInspectionCertificate.swift in Sources */,
 				C701621925E62B62002E4A6F /* CarInspectionCertificateItem.swift in Sources */,
-				C77A6F3425E49A8D00D3D93B /* CameraViewController.swift in Sources */,
+				C77A6F3425E49A8D00D3D93B /* QRViewController.swift in Sources */,
 				C701621D25E62BB3002E4A6F /* NSDateUtil.swift in Sources */,
 				C701620925E5E799002E4A6F /* QRResult.swift in Sources */,
 				C701621625E62B41002E4A6F /* CarInspectionCertificate.swift in Sources */,
 				C701621225E62AE7002E4A6F /* StandardCarInspectionCertificate.swift in Sources */,
+				C757884125EF65410096CF1B /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +264,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -315,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -333,7 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7N7GQVYCA5;
 				INFOPLIST_FILE = CarQR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7N7GQVYCA5;
 				INFOPLIST_FILE = CarQR/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
