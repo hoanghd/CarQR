@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func initRootViewController(){
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        let qrViewController = TextViewController()
-        let navigationController = UINavigationController(rootViewController: qrViewController)
+        let ocrViewController = OcrViewController()
+        let navigationController = UINavigationController(rootViewController: ocrViewController)
         
         self.window?.backgroundColor = UIColor.white
         self.window?.rootViewController = navigationController
