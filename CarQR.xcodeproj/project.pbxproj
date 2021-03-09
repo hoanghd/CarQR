@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55BBBF888AA0DAEE1D43A3AB /* Pods_CarQR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF473092445A44720464479E /* Pods_CarQR.framework */; };
 		C701620925E5E799002E4A6F /* QRResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701620825E5E799002E4A6F /* QRResult.swift */; };
 		C701620C25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701620B25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift */; };
 		C701620F25E62A5C002E4A6F /* LightCarInspectionCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701620E25E62A5C002E4A6F /* LightCarInspectionCertificate.swift */; };
@@ -17,6 +18,7 @@
 		C701622925E648B0002E4A6F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701622825E648B0002E4A6F /* DetailViewController.swift */; };
 		C73A6A7E25F7298C001C1738 /* OcrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73A6A7D25F7298C001C1738 /* OcrViewController.swift */; };
 		C73A6A8125F72A09001C1738 /* UIImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73A6A8025F72A09001C1738 /* UIImageUtil.swift */; };
+		C73A6A8725F7325B001C1738 /* EasyOCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73A6A8625F7325B001C1738 /* EasyOCRViewController.swift */; };
 		C757884125EF65410096CF1B /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757884025EF65410096CF1B /* TextViewController.swift */; };
 		C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F1425E4984100D3D93B /* AppDelegate.swift */; };
 		C77A6F1E25E4984400D3D93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1D25E4984400D3D93B /* Assets.xcassets */; };
@@ -26,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74F60D79E13309CD9D7912D5 /* Pods-CarQR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarQR.debug.xcconfig"; path = "Target Support Files/Pods-CarQR/Pods-CarQR.debug.xcconfig"; sourceTree = "<group>"; };
+		7F2FFC4B453A97639037FFB8 /* Pods-CarQR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarQR.release.xcconfig"; path = "Target Support Files/Pods-CarQR/Pods-CarQR.release.xcconfig"; sourceTree = "<group>"; };
+		AF473092445A44720464479E /* Pods_CarQR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarQR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C701620825E5E799002E4A6F /* QRResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRResult.swift; sourceTree = "<group>"; };
 		C701620B25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInspectionCertificateSharedItems.swift; sourceTree = "<group>"; };
 		C701620E25E62A5C002E4A6F /* LightCarInspectionCertificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightCarInspectionCertificate.swift; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		C701622825E648B0002E4A6F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C73A6A7D25F7298C001C1738 /* OcrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OcrViewController.swift; sourceTree = "<group>"; };
 		C73A6A8025F72A09001C1738 /* UIImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUtil.swift; sourceTree = "<group>"; };
+		C73A6A8625F7325B001C1738 /* EasyOCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyOCRViewController.swift; sourceTree = "<group>"; };
 		C757884025EF65410096CF1B /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		C77A6F1125E4984100D3D93B /* CarQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77A6F1425E4984100D3D93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,12 +57,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55BBBF888AA0DAEE1D43A3AB /* Pods_CarQR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B5964DD46AE3E969CBE7628 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				74F60D79E13309CD9D7912D5 /* Pods-CarQR.debug.xcconfig */,
+				7F2FFC4B453A97639037FFB8 /* Pods-CarQR.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		770539CC0C908B7B9111D0E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF473092445A44720464479E /* Pods_CarQR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C701620725E5E4D7002E4A6F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +109,8 @@
 			children = (
 				C77A6F1325E4984100D3D93B /* CarQR */,
 				C77A6F1225E4984100D3D93B /* Products */,
+				4B5964DD46AE3E969CBE7628 /* Pods */,
+				770539CC0C908B7B9111D0E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,6 +144,7 @@
 				C701622825E648B0002E4A6F /* DetailViewController.swift */,
 				C757884025EF65410096CF1B /* TextViewController.swift */,
 				C73A6A7D25F7298C001C1738 /* OcrViewController.swift */,
+				C73A6A8625F7325B001C1738 /* EasyOCRViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -128,9 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C77A6F2525E4984400D3D93B /* Build configuration list for PBXNativeTarget "CarQR" */;
 			buildPhases = (
+				8A3DC050C5F32F334437F62E /* [CP] Check Pods Manifest.lock */,
 				C77A6F0D25E4984100D3D93B /* Sources */,
 				C77A6F0E25E4984100D3D93B /* Frameworks */,
 				C77A6F0F25E4984100D3D93B /* Resources */,
+				A96898D4DDC3F7E03EFD67AB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +215,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8A3DC050C5F32F334437F62E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarQR-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A96898D4DDC3F7E03EFD67AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarQR/Pods-CarQR-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CarQR/Pods-CarQR-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CarQR/Pods-CarQR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C77A6F0D25E4984100D3D93B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -197,6 +269,7 @@
 				C701620C25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift in Sources */,
 				C701620F25E62A5C002E4A6F /* LightCarInspectionCertificate.swift in Sources */,
 				C701621925E62B62002E4A6F /* CarInspectionCertificateItem.swift in Sources */,
+				C73A6A8725F7325B001C1738 /* EasyOCRViewController.swift in Sources */,
 				C77A6F3425E49A8D00D3D93B /* QRViewController.swift in Sources */,
 				C701621D25E62BB3002E4A6F /* NSDateUtil.swift in Sources */,
 				C701620925E5E799002E4A6F /* QRResult.swift in Sources */,
@@ -339,6 +412,7 @@
 		};
 		C77A6F2625E4984400D3D93B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74F60D79E13309CD9D7912D5 /* Pods-CarQR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -359,6 +433,7 @@
 		};
 		C77A6F2725E4984400D3D93B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F2FFC4B453A97639037FFB8 /* Pods-CarQR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

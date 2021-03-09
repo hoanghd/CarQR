@@ -1,0 +1,6 @@
+framework module Pods_CarQR {
+  umbrella header "Pods-CarQR-umbrella.h"
+
+  export *
+  module * { export * }
+}
