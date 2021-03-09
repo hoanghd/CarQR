@@ -15,6 +15,8 @@
 		C701621925E62B62002E4A6F /* CarInspectionCertificateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621825E62B62002E4A6F /* CarInspectionCertificateItem.swift */; };
 		C701621D25E62BB3002E4A6F /* NSDateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701621C25E62BB3002E4A6F /* NSDateUtil.swift */; };
 		C701622925E648B0002E4A6F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C701622825E648B0002E4A6F /* DetailViewController.swift */; };
+		C73A6A7E25F7298C001C1738 /* OcrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73A6A7D25F7298C001C1738 /* OcrViewController.swift */; };
+		C73A6A8125F72A09001C1738 /* UIImageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73A6A8025F72A09001C1738 /* UIImageUtil.swift */; };
 		C757884125EF65410096CF1B /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757884025EF65410096CF1B /* TextViewController.swift */; };
 		C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77A6F1425E4984100D3D93B /* AppDelegate.swift */; };
 		C77A6F1E25E4984400D3D93B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77A6F1D25E4984400D3D93B /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 		C701621825E62B62002E4A6F /* CarInspectionCertificateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarInspectionCertificateItem.swift; sourceTree = "<group>"; };
 		C701621C25E62BB3002E4A6F /* NSDateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDateUtil.swift; sourceTree = "<group>"; };
 		C701622825E648B0002E4A6F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C73A6A7D25F7298C001C1738 /* OcrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OcrViewController.swift; sourceTree = "<group>"; };
+		C73A6A8025F72A09001C1738 /* UIImageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUtil.swift; sourceTree = "<group>"; };
 		C757884025EF65410096CF1B /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		C77A6F1125E4984100D3D93B /* CarQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77A6F1425E4984100D3D93B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				C701621C25E62BB3002E4A6F /* NSDateUtil.swift */,
+				C73A6A8025F72A09001C1738 /* UIImageUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 				C77A6F2E25E499F800D3D93B /* BaseViewController.swift */,
 				C701622825E648B0002E4A6F /* DetailViewController.swift */,
 				C757884025EF65410096CF1B /* TextViewController.swift */,
+				C73A6A7D25F7298C001C1738 /* OcrViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -185,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C701622925E648B0002E4A6F /* DetailViewController.swift in Sources */,
+				C73A6A8125F72A09001C1738 /* UIImageUtil.swift in Sources */,
 				C77A6F1525E4984100D3D93B /* AppDelegate.swift in Sources */,
 				C77A6F2F25E499F800D3D93B /* BaseViewController.swift in Sources */,
 				C701620C25E62A02002E4A6F /* CarInspectionCertificateSharedItems.swift in Sources */,
@@ -196,6 +203,7 @@
 				C701621625E62B41002E4A6F /* CarInspectionCertificate.swift in Sources */,
 				C701621225E62AE7002E4A6F /* StandardCarInspectionCertificate.swift in Sources */,
 				C757884125EF65410096CF1B /* TextViewController.swift in Sources */,
+				C73A6A7E25F7298C001C1738 /* OcrViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
