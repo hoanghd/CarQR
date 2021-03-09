@@ -1,12 +1,14 @@
 import AVFoundation
+import Vision
 import UIKit
 
 class OcrViewController: BaseViewController {
     var session = AVCaptureSession()
+    var requests = [VNRequest]()
     var previewLayer:AVCaptureVideoPreviewLayer!
     var capturePhotoOutput = AVCapturePhotoOutput()
     
-    var widthBox: CGFloat = 600
+    var widthBox: CGFloat = 300
     var heightBox: CGFloat = 50
     
     lazy var cameraButton: UIButton = {
@@ -46,6 +48,15 @@ class OcrViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         startCamera()
+        startTextRecognition()
+    }
+    
+    func startTextRecognition() {
+        let textRequest = VNRecognizeTextRequest(completionHandler: self.detectTextHandler)
+        textRequest.recognitionLanguages = ["en-US"]
+        textRequest.recognitionLevel = .accurate
+        
+        self.requests = [textRequest]
     }
     
     func startCamera() {
@@ -103,6 +114,34 @@ class OcrViewController: BaseViewController {
     func scanImage(_ image: UIImage) {
         let imageInBox = image.cropBox( self.previewLayer, self.outline.frame )
         imgView.image = imageInBox
+        
+        let imageRequestHandler = VNImageRequestHandler(cgImage: imageInBox.cgImage!, orientation: .up)
+        do {
+            try imageRequestHandler.perform(self.requests)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func detectTextHandler(request: VNRequest, error: Error?) {
+        if error != nil {
+            print("detectTextHandler:\(error!)")
+        }
+        
+        guard let results = request.results else {
+            return
+        }
+
+        // Perform UI updates on the main thread
+        DispatchQueue.main.async {
+            for result in results {
+                if let observation = result as? VNRecognizedTextObservation {
+                    for text in observation.topCandidates(1) {
+                        print(text.string)
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func takePicture(_ sender: UIButton?) {
