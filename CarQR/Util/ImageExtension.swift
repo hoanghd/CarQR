@@ -4,67 +4,26 @@ import GPUImage
 import CoreImage
 
 extension UIImage {
+    func cropBox(_ layer: AVCaptureVideoPreviewLayer, _ rect: CGRect) -> UIImage {
+        let outputRect = layer.metadataOutputRectConverted(fromLayerRect: rect)
+        var cgImage = self.cgImage!
+        let width = CGFloat(cgImage.width)
+        let height = CGFloat(cgImage.height)
     
-    // MARK: - Image Scaling
-    ///
-    /// - Parameter:
-    ///   - maxDimension: takes Dimension(CGFloat)
-    /// - returns:
-    ///   - Scaled Image(UIImage)
-    func scaledImage(_ maxDimension: CGFloat) -> UIImage? {
-        
-        var scaledSize = CGSize(width: maxDimension, height: maxDimension)
-        
-        if size.width > size.height {
-            scaledSize.height = size.height / size.width * scaledSize.width
-        } else {
-            scaledSize.width = size.width / size.height * scaledSize.height
-        }
-        
-        UIGraphicsBeginImageContext(scaledSize)
-        draw(in: CGRect(origin: .zero, size: scaledSize))
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return scaledImage
+        let cropRect = CGRect(
+            x: outputRect.origin.x * width,
+            y: outputRect.origin.y * height,
+            width: outputRect.size.width * width,
+            height: outputRect.size.height * height)
+
+        cgImage = cgImage.cropping(to: cropRect)!
+    
+        let croppedUIImage = UIImage(
+            cgImage: cgImage,
+            scale: self.scale,
+            orientation: self.imageOrientation
+        )
+
+        return croppedUIImage
     }
-    
-    // MARK: - Image preprocessing
-    ///
-    /// - returns:
-    ///   - Preprocessed Image(UIImage)
-    func preprocessedImage() -> UIImage? {
-        
-        let stillImageFilter = GPUImageAdaptiveThresholdFilter()
-        let imageFilter = GPUImageLuminanceThresholdFilter()
-        imageFilter.threshold = Defaults.imageFilterThreshold
-        stillImageFilter.blurRadiusInPixels = Defaults.blurRadiusInPixels
-        let image = stillImageFilter.image(byFilteringImage: self)
-        let filteredImage = imageFilter.image(byFilteringImage: image)!
-        let finalImage = removeNoise(noiseReducted: filteredImage)
-        return finalImage
-    }
-    
-    // MARK: - Remove noise from an image
-    ///
-    /// - Parameter:
-    ///   - noiseReducted: takes Image(UIImage)
-    /// - returns:
-    ///   - Noise-reducted Image(UIImage)
-    func removeNoise(noiseReducted: UIImage) -> UIImage {
-        
-        guard let openGLContext = EAGLContext(api: .openGLES2) else { return self }
-        let ciContext = CIContext(eaglContext: openGLContext)
-        
-        guard let noiseReduction = CIFilter(name: StringConstants.noiseReductionFilterName) else { return self }
-        noiseReduction.setValue(CIImage(image: self), forKey: kCIInputImageKey)
-        noiseReduction.setValue(Defaults.inputNoiseLevel, forKey: StringConstants.inputNoiseLevel)
-        noiseReduction.setValue(Defaults.inputSharpness, forKey: StringConstants.inputSharpness)
-        
-        if let output = noiseReduction.outputImage, let cgImage = ciContext.createCGImage(output, from: output.extent) {
-            return UIImage(cgImage: cgImage, scale: scale, orientation: imageOrientation)
-        }
-        return UIImage()
-    }
-    
 }

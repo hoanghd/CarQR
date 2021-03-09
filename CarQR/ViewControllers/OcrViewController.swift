@@ -8,6 +8,9 @@ class OcrViewController: BaseViewController {
     var previewLayer:AVCaptureVideoPreviewLayer!
     var capturePhotoOutput = AVCapturePhotoOutput()
     
+    var widthBox: CGFloat = 600
+    var heightBox: CGFloat = 50
+    
     lazy var cameraButton: UIButton = {
         let cameraButton = UIButton(frame: CGRect(x: 60, y:(self.screenHeight - 130) , width: 80, height: 80))
         cameraButton.setImage(UIImage(named: "CameraIcon")?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -24,13 +27,15 @@ class OcrViewController: BaseViewController {
     lazy var outline: CALayer = {
         let outline = CALayer()
         
-        var width: CGFloat = 600
-        var height: CGFloat = 50
-        
-        outline.frame = CGRect(x: (self.screenWidth - width)/2, y: (self.screenHeight - height)/2, width: width, height: height)
+        outline.frame = CGRect(x: (self.screenWidth - widthBox)/2, y: (self.screenHeight - heightBox)/2, width: widthBox, height: heightBox)
         outline.borderWidth = 2.0
         outline.borderColor = UIColor.white.cgColor
         return outline
+    }()
+    
+    lazy var imgView: UIImageView = {
+        let imgView = UIImageView(frame: CGRect(x: (self.screenWidth - widthBox)/2, y: (self.screenHeight - 130), width: widthBox, height: heightBox))
+        return imgView
     }()
     
     override func viewDidLoad() {
@@ -38,10 +43,12 @@ class OcrViewController: BaseViewController {
         
         self.view.addSubview( videoOutputView )
         self.view.addSubview( cameraButton )
+        self.view.addSubview( imgView )
     }
     
     override func viewWillAppear(_ animated: Bool) {
         startCamera()
+        imgView.image = UIImage(named: "abc")
     }
     
     func startCamera() {
@@ -55,12 +62,6 @@ class OcrViewController: BaseViewController {
         let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
         
         let deviceInput = try! AVCaptureDeviceInput(device: captureDevice!)
-        
-//        let deviceOutput = AVCaptureVideoDataOutput()
-//        deviceOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)]
-        
-        // Set the quality of the video
-        //deviceOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: DispatchQoS.QoSClass.default))
         
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
         capturePhotoOutput.isLivePhotoCaptureEnabled = capturePhotoOutput.isLivePhotoCaptureSupported
@@ -103,14 +104,14 @@ class OcrViewController: BaseViewController {
     }
     
     func scanImage(_ image: UIImage) {
-        if let tesseract = G8Tesseract(language: StringConstants.lang),
-           let scaledImage = image.scaledImage( Defaults.maxDimension ),
-           let preprocessedImage = scaledImage.preprocessedImage()
-        {
+        let imageInBox = image.cropBox( self.previewLayer, self.outline.frame )
+        
+        if let tesseract = G8Tesseract(language: StringConstants.lang) {
             tesseract.engineMode = .tesseractOnly
             tesseract.pageSegmentationMode = .sparseText
-            
-            tesseract.image = preprocessedImage
+
+            imgView.image = imageInBox
+            tesseract.image = UIImage(named: "abc")!
             tesseract.recognize()
             if let txt = tesseract.recognizedText, !txt.isEmpty {
                 print( txt )
@@ -124,26 +125,22 @@ class OcrViewController: BaseViewController {
         if let photoOutputConnection = capturePhotoOutput.connection(with: AVMediaType.video) {
           photoOutputConnection.videoOrientation = captureConnection.videoOrientation
         }
-        
+
         let photoSettings = AVCapturePhotoSettings()
         photoSettings.isHighResolutionPhotoEnabled = true
         photoSettings.flashMode = .auto
-        
+
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: self)
     }
 }
 
 extension OcrViewController : AVCapturePhotoCaptureDelegate {
   func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-    print("Finished processing photo")
-    
     guard let cgImageRef = photo.cgImageRepresentation() else {
       return print("Could not get image representation")
     }
 
     let cgImage = cgImageRef.takeUnretainedValue()
-    
-    print("Scanning image")
-    scanImage(UIImage(cgImage: cgImage))
+    scanImage( UIImage(cgImage: cgImage, scale: 1.0, orientation: .up) )
   }
 }
